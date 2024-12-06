@@ -20,7 +20,7 @@ function Dashboard() {
 
 
     useEffect(() => {
-        fetch(`/user/stocks`, {
+        fetch(`/api/user/stocks`, {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
@@ -72,7 +72,7 @@ function Dashboard() {
     }
 
     const addStock = () => {
-        fetch(`/user/stocks`, {
+        fetch(`/api/user/stocks`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -92,7 +92,7 @@ function Dashboard() {
     };
 
     const removeStock = (symbol) => {
-        fetch(`/user/stocks/${symbol}`, {
+        fetch(`/api/user/stocks/${symbol}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
