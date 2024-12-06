@@ -1,35 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { fetchFirebaseToken } from "../firebase";
 import {Link, useNavigate} from "react-router-dom";
 
 function Register() {
     const [formData, setFormData] = useState({ username: "", password: "" });
-    const [firebaseToken, setFirebaseToken] = useState("");
     const navigate = useNavigate();
 
-    // Fetch Firebase token on component mount
-    useEffect(() => {
-        const getToken = async () => {
-            const token = await fetchFirebaseToken();
-            if (token) {
-                setFirebaseToken(token);
-            } else {
-                alert("Failed to get Firebase token. Push notifications may not work.");
-            }
-        };
-        getToken();
-    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!firebaseToken) {
-            alert("Unable to register without a valid Firebase token.");
-            return;
-        }
         await fetch("http://127.0.0.1:5000/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ ...formData, firebaseToken }),
+            body: JSON.stringify({ ...formData }),
         });
         navigate("/login");
     };
