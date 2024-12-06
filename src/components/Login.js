@@ -4,10 +4,11 @@ import {Link, useNavigate} from "react-router-dom";
 function Login() {
     const navigate = useNavigate()
     const [formData, setFormData] = useState({ username: '', password: '' });
+    const backend_url = "http://172.31.11.156:5000"
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://127.0.0.1:5000/login', {
+        const response = await fetch(`${backend_url}/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),

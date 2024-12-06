@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const FINNHUB_WS_URL = "wss://ws.finnhub.io?token=ct8bg11r01qtkv5s13qgct8bg11r01qtkv5s13r0";
 
 function Dashboard() {
-    const backend_url = "http://localhost:5000";
+    const backend_url = "http://172.31.11.156:5000";
 
     const [selectedSymbols, setSelectedSymbols] = useState({});
     const [realTimePrices, setRealTimePrices] = useState({});
