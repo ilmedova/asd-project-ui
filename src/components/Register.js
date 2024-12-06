@@ -4,11 +4,10 @@ import {Link, useNavigate} from "react-router-dom";
 function Register() {
     const [formData, setFormData] = useState({ username: "", password: "" });
     const navigate = useNavigate();
-    const backend_url = "http://172.31.11.156:5000"
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await fetch(`${backend_url}/register`, {
+        await fetch(`/register`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ ...formData }),

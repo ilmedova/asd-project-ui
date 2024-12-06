@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const FINNHUB_WS_URL = "wss://ws.finnhub.io?token=ct8bg11r01qtkv5s13qgct8bg11r01qtkv5s13r0";
 
 function Dashboard() {
-    const backend_url = "http://172.31.11.156:5000";
 
     const [selectedSymbols, setSelectedSymbols] = useState({});
     const [realTimePrices, setRealTimePrices] = useState({});
@@ -21,7 +20,7 @@ function Dashboard() {
 
 
     useEffect(() => {
-        fetch(`${backend_url}/user/stocks`, {
+        fetch(`/user/stocks`, {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
@@ -73,7 +72,7 @@ function Dashboard() {
     }
 
     const addStock = () => {
-        fetch(`${backend_url}/user/stocks`, {
+        fetch(`/user/stocks`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -93,7 +92,7 @@ function Dashboard() {
     };
 
     const removeStock = (symbol) => {
-        fetch(`${backend_url}/user/stocks/${symbol}`, {
+        fetch(`/user/stocks/${symbol}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
