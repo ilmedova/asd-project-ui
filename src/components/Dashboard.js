@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const FINNHUB_WS_URL = "wss://ws.finnhub.io?token=ct8bg11r01qtkv5s13qgct8bg11r01qtkv5s13r0";
+const FINNHUB_WS_URL = "wss://ws.finnhub.io?token=YOUR_FINNHUB_TOKEN";
 
 function Dashboard() {
 
